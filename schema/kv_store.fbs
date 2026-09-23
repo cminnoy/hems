@@ -1,0 +1,26 @@
+namespace CEMS.KVStore;
+
+table KV {
+    key: string (required);     // Unique key
+    value: [ubyte];             // Serialised data
+    timestamp: double = 0.0;    // Seconds since epoch
+}
+
+table Query {
+    key: string (required);     // Unique key
+    source: string;             // Source component
+    realm: string;              // Realm of source
+    from: double = 0.0;         // Seconds since epoch
+    until: double = 0.0;        // Seconds since epoch
+}
+
+table Value {
+    timestamp: double = 0.0;    // Seconds since epoch
+    source: string;             // Source component
+    realm: string;              // Realm of source
+    value: [ubyte];             // Serialized data
+}
+
+table Values {
+    values: [Value];
+}
